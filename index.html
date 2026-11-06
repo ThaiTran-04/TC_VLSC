@@ -1,0 +1,2646 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trường Cao Đẳng Văn Lang Sài Gòn</title>
+    
+    <!-- Nhúng font Montserrat; Atlante Display dùng font cài đặt trên máy nếu có -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <style>
+        @font-face {
+            font-family: 'Atlante Display';
+            src: local('Atlante Display'), local('AtlanteDisplay'), local('AtlanteDisplay-Bold'), local('AtlanteDisplay-Medium'), local('AtlanteDisplay-Regular');
+            font-display: swap;
+        }
+
+        :root {
+            --color-primary-red: #db1f32;
+            --color-text-black: #333333;
+            --font-display: 'Atlante Display', 'Montserrat', sans-serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-body);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-display);
+        }
+
+        body {
+            background-color: #faf7f2;
+            background-image: url('images/bg_tile.png');
+            background-repeat: repeat;
+            color: var(--color-text-black);
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Phần nội dung thêm vào sau sẽ nằm ở đây để đẩy footer xuống đáy nếu trang ngắn */
+        .main-content {
+            flex: 1;
+            width: min(100%, 1338px);
+            margin: 0 auto;
+            background: #ffffff;
+        }
+
+        .hero-banner {
+            position: relative;
+            width: min(100%, 1338px);
+            margin: 0 auto;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .hero-banner-image {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .hero-banner-content {
+            position: absolute;
+            right: 7%;
+            bottom: 9%;
+            left: 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            line-height: 1.2;
+        }
+
+        .hero-banner-title {
+            color: #ffffff;
+            font-size: clamp(24px, 4.5vw, 58px);
+            font-weight: 900;
+            line-height: 1.05;
+        }
+
+        .hero-banner-subtitle {
+            display: block;
+            margin-top: 12px;
+            font-size: clamp(16px, 2.7vw, 36px);
+            font-weight: 700;
+        }
+
+        .hero-banner-cta {
+            display: inline-flex;
+            flex: 0 0 auto;
+            align-items: center;
+            gap: 18px;
+            padding: 18px 26px 18px 40px;
+            border-radius: 999px;
+            background: #ffffff;
+            color: var(--color-primary-red);
+            font-size: clamp(16px, 2.3vw, 30px);
+            font-weight: 900;
+            line-height: 1.35;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .hero-banner-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.18);
+        }
+
+        .hero-banner-cta-icon {
+            display: grid;
+            width: clamp(42px, 5vw, 68px);
+            height: clamp(42px, 5vw, 68px);
+            flex: 0 0 auto;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--color-primary-red);
+            color: #ffffff;
+        }
+
+        .hero-banner-cta-icon svg {
+            width: 68%;
+            height: 68%;
+            fill: none;
+            stroke: currentColor;
+            stroke-linecap: round;
+            stroke-width: 2;
+        }
+
+        .campus-highlights {
+            width: min(100%, 1338px);
+            margin: 0 auto;
+            padding: 58px 9% 72px;
+            background: #ffffff;
+        }
+
+        .campus-intro {
+            max-width: 1120px;
+            margin: 0 auto 42px;
+            color: var(--color-text-black);
+            font-size: clamp(20px, 2.25vw, 36px);
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .campus-intro strong {
+            font-weight: 800;
+        }
+
+        .campus-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 30px;
+        }
+
+        .campus-stat {
+            display: flex;
+            min-height: 180px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 20px;
+            border-radius: 16px;
+            background: var(--color-primary-red);
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .campus-stat-value {
+            font-size: clamp(24px, 2.4vw, 36px);
+            font-weight: 900;
+            line-height: 1.15;
+            white-space: nowrap;
+        }
+
+        .campus-stat-icon {
+            width: 70px;
+            height: 70px;
+            fill: none;
+            stroke: currentColor;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 2;
+        }
+
+        .campus-stat-icon .icon-fill {
+            fill: currentColor;
+            stroke: none;
+        }
+
+        .campus-video {
+            width: min(100%, 880px);
+            margin: 64px auto 0;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: #eeeeee;
+        }
+
+        .campus-video iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .campus-story {
+            position: relative;
+            width: min(100%, 1338px);
+            margin: 0 auto;
+            overflow: hidden;
+            background: #ffffff;
+            line-height: 0;
+        }
+
+        .campus-story-image {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .campus-story-text {
+            position: absolute;
+            top: 50%;
+            left: 3.5%;
+            width: 35%;
+            margin: 0;
+            color: #ffffff;
+            font-size: clamp(13px, 2vw, 26px);
+            font-weight: 500;
+            line-height: 1.4;
+            text-align: justify;
+            transform: translateY(-50%);
+        }
+
+        .campus-story-text strong {
+            display: block;
+            font-weight: 800;
+        }
+
+        .facility-gallery {
+            width: min(100%, 1338px);
+            margin: 0 auto;
+            padding: 34px 0 0;
+            background: #ffffff;
+        }
+
+        .facility-gallery-tabs {
+            display: flex;
+            align-items: flex-end;
+            gap: 20px;
+            padding: 0 3.2%;
+        }
+
+        .facility-gallery-tab {
+            flex: 1 1 0;
+            min-height: 60px;
+            padding: 14px 32px;
+            border: 0;
+            border-radius: 8px 8px 0 0;
+            background: #92201f;
+            color: rgba(255,255,255,0.55);
+            font-size: clamp(16px, 1.8vw, 24px);
+            font-weight: 800;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .facility-gallery-tab[aria-selected="true"] {
+            min-height: 72px;
+            background: var(--color-primary-red);
+            color: #ffffff;
+        }
+
+        .facility-gallery-tab:focus-visible {
+            outline: 3px solid #142b70;
+            outline-offset: 3px;
+        }
+
+        .facility-gallery-panel {
+            min-height: 530px;
+            padding: 30px 3%;
+            background: var(--color-primary-red);
+            color: #ffffff;
+        }
+
+        .facility-gallery-placeholder {
+            display: grid;
+            min-height: 470px;
+            place-items: center;
+            max-width: 460px;
+            margin: 0 auto;
+            padding: 24px;
+            font-size: clamp(16px, 2vw, 24px);
+            font-weight: 600;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .facility-gallery-placeholder[hidden],
+        .gallery-wrapper[hidden] {
+            display: none;
+        }
+
+        .gallery-wrapper {
+            display: flex;
+            gap: 24px;
+            width: 100%;
+            max-width: 1250px;
+            height: 470px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .gallery-main {
+            position: relative;
+            width: 75%;
+            height: 100%;
+            flex: 3 1 0;
+            overflow: hidden;
+            border-radius: 10px;
+            background: transparent;
+        }
+
+        .gallery-main .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .gallery-thumbs {
+            width: 25%;
+            height: 100%;
+            flex: 1 1 0;
+            box-sizing: border-box;
+        }
+
+        .gallery-thumbs .swiper-slide {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            background: transparent;
+            cursor: pointer;
+            opacity: 1;
+            transition: opacity 0.2s;
+        }
+
+        .gallery-thumbs .swiper-slide-thumb-active {
+            opacity: 0.72;
+        }
+
+        .gallery-thumbs .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .gallery-nav-btn {
+            width: 35px !important;
+            height: 35px !important;
+            border: 0 !important;
+            border-radius: 6px !important;
+            background: #db1f32 !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .gallery-nav-btn::after {
+            font-size: 14px !important;
+            font-weight: 700;
+        }
+
+        .gallery-main .swiper-button-next { right: 15px; }
+        .gallery-main .swiper-button-prev { left: 15px; }
+
+        .classroom-section {
+            width: min(100%, 1338px);
+            margin: 32px auto 0;
+            background: #ffffff;
+        }
+
+        .classroom-feature {
+            padding: 32px 5% 120px;
+            background: var(--color-primary-red);
+        }
+
+        .classroom-feature-heading {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            align-items: center;
+            gap: 32px;
+            max-width: 1120px;
+            min-height: 150px;
+            margin: 0 auto;
+            color: #ffffff;
+        }
+
+        .classroom-feature-title {
+            font-size: clamp(24px, 3vw, 40px);
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        .classroom-feature-list {
+            display: grid;
+            gap: 8px;
+            list-style: none;
+            font-size: clamp(15px, 1.6vw, 22px);
+            line-height: 1.45;
+        }
+
+        .classroom-feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .classroom-feature-list li::before {
+            content: "✓";
+            display: inline-grid;
+            width: 20px;
+            height: 20px;
+            flex: 0 0 20px;
+            place-items: center;
+            margin-top: 2px;
+            border: 1.5px solid currentColor;
+            border-radius: 50%;
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .classroom-slider {
+            position: relative;
+            width: min(100%, 1250px);
+            height: clamp(260px, 37vw, 500px);
+            margin: -90px auto 0;
+            overflow: hidden;
+            border: 0;
+            border-radius: 12px;
+            background: #eeeeee;
+        }
+
+        .classroom-slider .swiper-wrapper,
+        .classroom-slider .swiper-slide {
+            width: 100%;
+            height: 100%;
+        }
+
+        .classroom-slider .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            object-fit: cover;
+        }
+
+        .classroom-slider-placeholder {
+            display: grid;
+            width: 100%;
+            height: 100%;
+            place-items: center;
+            padding: 24px;
+            background: linear-gradient(135deg, #f3f3f3, #dedede);
+            color: #666666;
+            font-size: clamp(16px, 2vw, 24px);
+            font-weight: 600;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .classroom-slider .gallery-nav-btn {
+            display: none;
+        }
+
+        .classroom-slider.has-images .gallery-nav-btn {
+            display: grid;
+            place-items: center;
+        }
+
+        .classroom-slider .swiper-button-next { right: 12px; }
+        .classroom-slider .swiper-button-prev { left: 12px; }
+
+        .classroom-description {
+            padding: 40px 5% 46px;
+            color: var(--color-text-black);
+            text-align: center;
+        }
+
+        .classroom-description h2 {
+            margin: 0 0 16px;
+            color: var(--color-primary-red);
+            font-size: clamp(26px, 3.2vw, 44px);
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        .classroom-description p {
+            max-width: 1000px;
+            margin: 0 auto;
+            font-size: clamp(16px, 1.7vw, 22px);
+            line-height: 1.5;
+        }
+
+        .practice-gallery {
+            width: min(100%, 1338px);
+            margin: 0 auto 36px;
+            padding-top: 20px;
+        }
+
+        .practice-gallery-tabs {
+            display: flex;
+            align-items: flex-end;
+            gap: 12px;
+            padding: 0 1.7%;
+        }
+
+        .practice-gallery-tab {
+            min-height: 54px;
+            min-width: 0;
+            flex: 1 1 0;
+            padding: 12px 18px;
+            border: 0;
+            border-radius: 8px 8px 0 0;
+            background: #92201f;
+            color: rgba(255,255,255,0.65);
+            font-size: clamp(14px, 1.5vw, 20px);
+            font-weight: 800;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .practice-gallery-tab[aria-selected="true"] {
+            min-height: 64px;
+            background: var(--color-primary-red);
+            color: #ffffff;
+        }
+
+        .practice-gallery-tab:focus-visible {
+            outline: 3px solid #142b70;
+            outline-offset: 3px;
+        }
+
+        .practice-gallery-panel {
+            min-height: 300px;
+            padding: 40px 4.3% 28px;
+            background: var(--color-primary-red);
+        }
+
+        .practice-gallery-slider {
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+            height: auto;
+            aspect-ratio: 1.65;
+            margin: 0 auto 18px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .practice-gallery-slider .swiper-slide,
+        .practice-gallery-slider .swiper-slide img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .practice-gallery-slider .swiper-slide img,
+        .practice-gallery-thumbs .swiper-slide img {
+            display: block;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .practice-gallery-slider .swiper-slide img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .practice-gallery-slider .swiper-button-next { right: 12px; }
+        .practice-gallery-slider .swiper-button-prev { left: 12px; }
+
+        .practice-gallery-slider .gallery-nav-btn {
+            width: 30px !important;
+            height: 30px !important;
+            border-radius: 0 !important;
+            box-shadow: none;
+        }
+
+        .practice-gallery-slider .gallery-nav-btn::after {
+            font-size: 15px !important;
+        }
+
+        .practice-gallery-slider .swiper-pagination-bullet {
+            background: #ffffff;
+            opacity: 0.65;
+        }
+
+        .practice-gallery-slider .swiper-pagination-bullet-active {
+            opacity: 1;
+        }
+
+        .practice-gallery-thumbs {
+            width: 100%;
+            max-width: 1100px;
+            height: clamp(150px, 16vw, 230px);
+            margin: 0 auto;
+        }
+
+        .practice-gallery-thumbs .swiper-slide {
+            height: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            opacity: 0.75;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .practice-gallery-thumbs .swiper-slide-thumb-active {
+            opacity: 1;
+        }
+
+        .practice-gallery-thumbs .swiper-slide img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .practice-gallery-placeholder {
+            display: grid;
+            min-height: 300px;
+            place-items: center;
+            margin: 0;
+            color: #ffffff;
+            font-size: clamp(16px, 2vw, 24px);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .practice-gallery-placeholder[hidden],
+        .practice-gallery-content[hidden] {
+            display: none;
+        }
+
+        .library-gallery {
+            position: relative;
+            isolation: isolate;
+            width: min(96%, 1338px);
+            margin: 0 auto 36px;
+            padding: 20px 0;
+            overflow: hidden;
+            color: #ffffff;
+            background: #a92c31;
+        }
+
+        .library-gallery::before {
+            position: absolute;
+            z-index: -1;
+            inset: -5px;
+            background:
+                linear-gradient(rgba(180, 39, 45, 0.78), rgba(180, 39, 45, 0.78)),
+                url("images/19_ALM.png") center / cover no-repeat;
+            filter: blur(3px);
+            content: "";
+        }
+
+        .library-gallery-heading {
+            margin: 0 6.2% 12px;
+        }
+
+        .library-gallery-heading h2 {
+            margin: 0 0 4px;
+            font-size: clamp(28px, 5vw, 48px);
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        .library-gallery-heading p {
+            margin: 0;
+            font-size: clamp(16px, 2.3vw, 22px);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .library-gallery-slider {
+            position: relative;
+            width: 100%;
+            height: 330px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .library-gallery-slider .swiper-slide {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .library-gallery-slider .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 280px;
+            border-radius: 8px;
+            object-fit: cover;
+            transform: scale(0.68, 0.5);
+            transition: transform 0.35s ease;
+        }
+
+        .library-gallery-slider .swiper-slide-active img {
+            transform: scale(1.42, 1);
+        }
+
+        .library-gallery-slider .swiper-slide-prev img {
+            transform: translateX(-16%) scale(0.68, 0.5);
+        }
+
+        .library-gallery-slider .swiper-slide-next img {
+            transform: translateX(16%) scale(0.68, 0.5);
+        }
+
+        .library-gallery-slider .gallery-nav-btn {
+            z-index: 3;
+            width: 30px !important;
+            height: 30px !important;
+            border-radius: 0 !important;
+            box-shadow: none;
+        }
+
+        .library-gallery-slider .swiper-button-next { right: 0; }
+        .library-gallery-slider .swiper-button-prev { left: 0; }
+
+        .library-gallery-slider .gallery-nav-btn::after {
+            font-size: 15px !important;
+        }
+
+        .library-gallery-slider .swiper-pagination {
+            bottom: 12px !important;
+        }
+
+        .library-gallery-slider .swiper-pagination-bullet {
+            background: #ffffff;
+            opacity: 0.65;
+        }
+
+        .library-gallery-slider .swiper-pagination-bullet-active {
+            opacity: 1;
+        }
+
+        .library-gallery-dot {
+            width: 9px;
+            height: 9px;
+            margin: 0 3px;
+            padding: 0;
+            border: 0;
+            border-radius: 50%;
+            background: #ffffff;
+            opacity: 0.65;
+            cursor: pointer;
+        }
+
+        .library-gallery-dot.is-active {
+            opacity: 1;
+        }
+
+        .dormitory-section {
+            --dormitory-side-padding: min(4.3vw, 57.5px);
+            width: min(100%, 1338px);
+            margin: 0 auto;
+            padding: 20px var(--dormitory-side-padding) 0;
+            background: #ffffff;
+        }
+
+        .dormitory-banner {
+            position: relative;
+            display: flex;
+            left: 50%;
+            width: calc(100% + 2 * var(--dormitory-side-padding));
+            height: clamp(170px, 18vw, 260px);
+            align-items: center;
+            overflow: hidden;
+            transform: translateX(-50%);
+            background: var(--color-primary-red);
+        }
+
+        .dormitory-banner img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .dormitory-banner-content {
+            position: relative;
+            z-index: 1;
+            width: min(60%, 760px);
+            padding: 0 5%;
+            color: #ffffff;
+        }
+
+        .dormitory-banner-content h2 {
+            margin: 0 0 6px;
+            font-size: clamp(28px, 3.6vw, 46px);
+            font-weight: 900;
+            line-height: 1.15;
+        }
+
+        .dormitory-banner-content p {
+            max-width: 440px;
+            margin: 0;
+            font-size: clamp(16px, 2vw, 22px);
+            line-height: 1.35;
+        }
+
+        .dormitory-gallery {
+            display: grid;
+            gap: 22px;
+            width: 94%;
+            margin: 34px auto 0;
+        }
+
+        .dormitory-gallery-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            aspect-ratio: 2.27 / 1;
+        }
+
+        .dormitory-gallery-row-reverse {
+            grid-template-columns: 1fr 2fr;
+        }
+
+        .dormitory-photo-stack {
+            display: grid;
+            grid-template-rows: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            min-height: 0;
+        }
+
+        .dormitory-photo {
+            position: relative;
+            min-width: 0;
+            min-height: 0;
+            margin: 0;
+            overflow: hidden;
+            border-radius: 6px;
+            background: #eeeeee;
+        }
+
+        .dormitory-gallery-row > .dormitory-photo,
+        .dormitory-gallery-row > .dormitory-photo-stack {
+            grid-row: span 2;
+        }
+
+        .dormitory-photo img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .dormitory-photo-caption {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 8px 14px;
+            color: #ffffff;
+            font-size: clamp(14px, 1.8vw, 20px);
+            line-height: 1.3;
+        }
+
+        .learning-experience {
+            width: min(100%, 1338px);
+            margin: 0 auto;
+            padding: 64px 8%;
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .learning-experience h2 {
+            max-width: 900px;
+            margin: 0 auto 24px;
+            color: var(--color-primary-red);
+            font-size: clamp(28px, 3.8vw, 40px);
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        .learning-experience p {
+            max-width: 900px;
+            margin: 0 auto;
+            color: var(--color-text-black);
+            font-size: clamp(17px, 2.2vw, 24px);
+            line-height: 1.3;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-wrapper {
+                width: 100%;
+                height: auto;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .gallery-main {
+                width: 100%;
+                height: 250px;
+                flex: none;
+            }
+
+            .gallery-thumbs {
+                width: 100%;
+                height: 80px;
+                flex: none;
+            }
+
+            .gallery-nav-btn {
+                width: 30px !important;
+                height: 30px !important;
+            }
+
+            .gallery-nav-btn::after {
+                font-size: 12px !important;
+            }
+
+            .facility-gallery-panel {
+                min-height: 0;
+                padding: 8px 12px;
+            }
+
+            .facility-gallery-placeholder {
+                min-height: 250px;
+            }
+
+            .classroom-feature {
+                padding: 24px 20px 80px;
+            }
+
+            .classroom-feature-heading {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                min-height: 0;
+                padding-bottom: 20px;
+            }
+
+            .classroom-feature-title {
+                font-size: clamp(22px, 6vw, 30px);
+            }
+
+            .classroom-feature-list {
+                gap: 5px;
+                font-size: 15px;
+            }
+
+            .classroom-slider {
+                height: 240px;
+                margin-top: -56px;
+            }
+
+            .classroom-description {
+                padding: 32px 20px 32px;
+            }
+
+            .practice-gallery {
+                padding-top: 8px;
+                margin-bottom: 24px;
+            }
+
+            .practice-gallery-tabs {
+                gap: 8px;
+                padding: 0 12px;
+            }
+
+            .practice-gallery-tab {
+                min-height: 46px;
+                padding: 8px 4px;
+                font-size: clamp(10px, 2.8vw, 13px);
+                line-height: 1.2;
+            }
+
+            .practice-gallery-tab[aria-selected="true"] {
+                min-height: 54px;
+            }
+
+            .practice-gallery-panel {
+                padding: 20px 16px 24px;
+            }
+
+            .practice-gallery-slider {
+                height: 250px;
+                aspect-ratio: auto;
+                margin-bottom: 12px;
+            }
+
+            .practice-gallery-thumbs {
+                height: 76px;
+            }
+
+            .practice-gallery-placeholder {
+                min-height: 220px;
+            }
+
+            .library-gallery {
+                margin-bottom: 24px;
+                padding: 20px 0 18px;
+            }
+
+            .library-gallery-heading {
+                margin: 0 6.2% 12px;
+            }
+
+            .library-gallery-slider {
+                height: 250px;
+            }
+
+            .library-gallery-slider .swiper-slide img {
+                height: 200px;
+                transform: scale(0.68, 0.5);
+            }
+
+            .library-gallery-slider .swiper-slide-active img {
+                transform: scale(1.42, 1);
+            }
+
+            .library-gallery-slider .swiper-slide-prev img {
+                transform: translateX(-16%) scale(0.68, 0.5);
+            }
+
+            .library-gallery-slider .swiper-slide-next img {
+                transform: translateX(16%) scale(0.68, 0.5);
+            }
+
+            .library-gallery-slider .gallery-nav-btn {
+                width: 26px !important;
+                height: 26px !important;
+            }
+
+            .library-gallery-slider .gallery-nav-btn::after {
+                font-size: 12px !important;
+            }
+
+            .library-gallery-slider .swiper-pagination {
+                bottom: 4px !important;
+            }
+
+            .dormitory-section {
+                margin-bottom: 0;
+                --dormitory-side-padding: 16px;
+                padding: 16px var(--dormitory-side-padding) 0;
+            }
+
+            .dormitory-banner {
+                left: auto;
+                width: 100%;
+                height: auto;
+                min-height: 150px;
+                align-items: center;
+                transform: none;
+            }
+
+            .dormitory-banner-content {
+                width: 70%;
+                padding: 16px 5%;
+            }
+
+            .dormitory-banner-content h2 {
+                font-size: clamp(22px, 5.5vw, 34px);
+            }
+
+            .dormitory-banner-content p {
+                font-size: clamp(13px, 3.2vw, 18px);
+            }
+
+            .dormitory-gallery {
+                width: 100%;
+                gap: 14px;
+                margin-top: 20px;
+            }
+
+            .dormitory-gallery-row {
+                gap: 10px;
+                height: clamp(150px, 48vw, 220px);
+                aspect-ratio: auto;
+            }
+
+            .dormitory-photo-stack {
+                gap: 8px;
+            }
+
+            .dormitory-photo-caption {
+                padding: 6px 9px;
+                font-size: 13px;
+            }
+
+            .learning-experience {
+                padding: 48px 22px;
+            }
+
+            .learning-experience h2 {
+                margin-bottom: 12px;
+            }
+
+            .back-to-top {
+                right: 16px;
+                bottom: 16px;
+            }
+        }
+
+        /* ========================================= */
+        /* 1. TOPBAR                                 */
+        /* ========================================= */
+        .vl-topbar {
+            background-color: #db1f32;
+            width: 100%;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .vl-topbar-inner {
+            max-width: 1240px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .topbar-btn-apply {
+            background-color: #ff9800;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 4px;
+            transition: background 0.2s;
+            display: inline-block;
+        }
+        .topbar-btn-apply:hover {
+            background-color: #e68a00;
+        }
+
+        .topbar-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 12.5px;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+        .topbar-link:hover {
+            opacity: 0.85;
+        }
+
+        .topbar-sep {
+            color: rgba(255,255,255,0.6);
+            font-size: 12px;
+        }
+
+        .topbar-lang-pills {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lang-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #9b111e;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 12px;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.25);
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .lang-pill img {
+            width: 14px;
+            height: auto;
+            border-radius: 2px;
+        }
+        .lang-pill.active {
+            background: #7d0d18;
+        }
+
+        /* ========================================= */
+        /* 2. MENU ĐIỀU HƯỚNG VÀ LOGO                */
+        /* ========================================= */
+        .vl-nav-wrapper {
+            width: 100%;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            position: relative;
+            z-index: 9999;
+        }
+
+        .vl-nav-container {
+            font-family: var(--font-body);
+            max-width: 1240px;
+            width: 100%;
+            height: 65px; 
+            background: #ffffff;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            position: relative; 
+            padding: 0 20px; 
+            box-sizing: border-box; 
+            margin: 0 auto;
+        }
+
+        .vl-logo-link {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            text-decoration: none;
+            padding-right: 20px;
+        }
+        
+        .vl-logo-img {
+            height: 45px; 
+            width: auto;
+            object-fit: contain;
+        }
+
+        .vl-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 22px; 
+            height: 100%;
+        }
+
+        .vl-menu-item {
+            position: static; 
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .vl-menu-item.dropdown-basic {
+            position: relative;
+        }
+
+        .vl-menu-link {
+            text-decoration: none;
+            color: var(--color-text-black);
+            font-size: 14px; 
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.3s;
+            cursor: pointer;
+            white-space: nowrap; 
+            height: 100%; 
+        }
+
+        .vl-menu-link svg {
+            width: 10px;
+            height: 10px;
+            stroke: #666;
+            transition: transform 0.3s, stroke 0.3s;
+        }
+
+        .vl-menu-item:hover .vl-menu-link {
+            color: #db1f32;
+        }
+        .vl-menu-item:hover .vl-menu-link svg {
+            stroke: #db1f32;
+            transform: rotate(180deg);
+        }
+
+        /* Khung Dropdown Nhỏ */
+        .vl-dropdown {
+            position: absolute;
+            top: 100%; 
+            left: 0;
+            background: #ffffff;
+            border-radius: 12px;
+            border-top: 3px solid #db1f32;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            min-width: 260px;
+            padding: 10px 0;
+        }
+        
+        .vl-dropdown-right {
+            left: auto;
+            right: 0;
+        }
+
+        .vl-menu-item:hover .vl-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .vl-drop-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .vl-drop-item {
+            position: relative;
+        }
+
+        .vl-drop-link {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 14px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #f5f5f5;
+            transition: all 0.2s;
+        }
+
+        .vl-drop-item:last-child .vl-drop-link {
+            border-bottom: none;
+        }
+
+        .vl-drop-link::before {
+            content: "›";
+            font-size: 18px;
+            color: #999;
+            margin-right: 10px;
+            line-height: 1;
+            margin-top: -2px;
+            transition: color 0.2s, transform 0.2s;
+            flex-shrink: 0; 
+        }
+
+        .vl-drop-text {
+            flex: 1;
+            line-height: 1.5;
+            white-space: normal;
+        }
+
+        .vl-drop-link.indented {
+            padding-left: 45px;
+        }
+        .vl-drop-link.indented::before {
+            content: "›";
+            font-size: 14px;
+            margin-right: 8px;
+        }
+
+        .vl-drop-link:hover {
+            color: #db1f32;
+            background-color: #fcfcfc;
+        }
+        .vl-drop-link:hover::before {
+            color: #db1f32;
+            transform: translateX(3px);
+        }
+
+        .vl-badge-new {
+            background-color: #db1f32;
+            color: #fff;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 2px 5px;
+            border-radius: 3px;
+            margin-left: 8px;
+            line-height: 1;
+            display: inline-block;
+        }
+
+        /* Mega Menus */
+        .vl-mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 0; 
+            width: 100%; 
+            background: #ffffff;
+            border-radius: 12px;
+            border-top: 3px solid #db1f32;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: hidden; 
+        }
+        
+        .vl-menu-item:hover .vl-mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .vl-mega-news { display: flex; gap: 20px; }
+        .vl-news-card { flex: 1; text-align: center; text-decoration: none; }
+        .vl-news-img { width: 100%; height: 110px; object-fit: cover; border-radius: 8px; margin-bottom: 10px; transition: transform 0.3s; }
+        .vl-news-card:hover .vl-news-img { transform: scale(1.03); }
+        .vl-news-title { color: var(--color-text-black); font-size: 14px; font-weight: 500; transition: color 0.2s; line-height: 1.4;}
+        .vl-news-card:hover .vl-news-title { color: #db1f32; }
+
+        .vl-mega-courses { display: flex; gap: 20px; padding: 25px 20px;}
+        .vl-course-col { flex: 1; }
+        .vl-course-title { display: flex; align-items: center; color: #db1f32; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid #ffebeb; margin-top: 15px; line-height: 1.3;}
+        .vl-course-title:first-child { margin-top: 0; }
+        .vl-course-icon { width: 18px; height: 18px; margin-right: 8px; object-fit: contain; flex-shrink: 0;}
+        .vl-course-list { list-style: none; padding: 0; margin: 0; }
+        .vl-course-item a { text-decoration: none; color: var(--color-text-black); font-size: 13px; display: flex; align-items: center; padding: 7px 0; transition: color 0.2s; }
+        .vl-course-item a::before { content: "›"; color: #999; margin-right: 6px; font-size: 16px; transition: transform 0.2s; }
+        .vl-course-item a:hover { color: #db1f32; }
+        .vl-course-item a:hover::before { color: #db1f32; transform: translateX(3px); }
+
+        .vl-mega-student { display: flex; gap: 20px; padding: 20px; }
+        .vl-student-cols { flex: 1.4; display: flex; gap: 20px; z-index: 2; position: relative; } 
+        .vl-student-col { flex: 1; }
+        .vl-student-img-wrap { 
+            flex: 1; 
+            display: flex; 
+            align-items: flex-end; 
+            justify-content: flex-end; 
+            margin-bottom: -20px;
+            margin-right: -20px;
+            z-index: 1;
+        }
+        .vl-student-img { 
+            width: auto; 
+            max-width: 110%; 
+            height: 300px; 
+            object-fit: contain; 
+            object-position: bottom right;
+        }
+
+
+        /* ========================================= */
+        /* 8. MAIN FOOTER                            */
+        /* ========================================= */
+        .vl-footer {
+            background-color: #db1f32;
+            color: #ffffff;
+            padding: 35px 20px 40px 20px;
+            width: 100%;
+            margin-top: auto; /* Đẩy footer xuống dưới cùng */
+        }
+
+        .vl-footer-inner {
+            max-width: 1220px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .footer-col-1 { flex: 1.1; }
+        .footer-col-2 { flex: 1.25; }
+        .footer-col-3 {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .footer-heading {
+            font-family: var(--font-display);
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 6px;
+            letter-spacing: 0.3px;
+        }
+
+        .footer-divider-line {
+            width: 100%;
+            height: 1px;
+            background-color: rgba(255,255,255,0.45);
+            margin-bottom: 16px;
+        }
+
+        .vlu-main-logo { margin-bottom: 14px; }
+        .img-vlu { height: 44px; width: auto; object-fit: contain; display: block; }
+
+        .footer-sub-logos { display: flex; align-items: center; gap: 12px; }
+        .sub-logo { height: 28px; width: auto; object-fit: contain; }
+        .sub-logo.round { height: 32px; }
+
+        .footer-contact-line { font-size: 13.5px; line-height: 1.6; margin-bottom: 8px; color: #ffffff; }
+        .footer-link { color: #ffffff; text-decoration: none; }
+        .footer-link:hover { text-decoration: underline; }
+        .footer-hotline-wrap { margin-top: 14px; }
+
+        .btn-hotline-pill {
+            display: inline-block;
+            background-color: #0e1f68;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 800;
+            padding: 8px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn-hotline-pill:hover {
+            background-color: #08154a;
+            transform: translateY(-1px);
+        }
+
+        .footer-map-wrapper {
+            display: block;
+            width: 100%;
+            max-width: 280px;
+            height: 150px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            transition: transform 0.2s;
+        }
+        .footer-map-wrapper:hover { transform: scale(1.02); }
+
+        .footer-map-wrapper iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 1100;
+            display: grid;
+            width: 40px;
+            height: 40px;
+            place-items: center;
+            border: 2px solid #db1f32;
+            border-radius: 50%;
+            background: #0e1f68;
+            color: #ffffff;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
+            transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+        }
+
+        .back-to-top.is-visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: #08154a;
+        }
+
+        .back-to-top:focus-visible {
+            outline: 3px solid #ffffff;
+            outline-offset: 3px;
+        }
+
+        .back-to-top svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ========================================= */
+        /* RESPONSIVE CHO MOBILE (MAX 768px)         */
+        /* ========================================= */
+        .vl-mobile-toggle { display: none; }
+
+        @media (max-width: 768px) {
+            .vl-topbar-inner { width: 100%; justify-content: space-between; }
+            .vl-nav-container { width: 100%; padding: 0 15px; }
+            .vl-logo-img { height: 35px; } 
+
+            .vl-mobile-toggle {
+                display: flex; flex-direction: column; justify-content: space-between;
+                width: 26px; height: 18px; cursor: pointer;
+            }
+            .vl-mobile-toggle span { display: block; width: 100%; height: 3px; background-color: #db1f32; border-radius: 2px; transition: all 0.3s; }
+            .vl-mobile-toggle.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+            .vl-mobile-toggle.active span:nth-child(2) { opacity: 0; }
+            .vl-mobile-toggle.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+            .vl-menu {
+                position: absolute; top: 60px; left: 0; width: 100%;
+                background: #fff; flex-direction: column; align-items: flex-start; gap: 0;
+                box-shadow: 0 15px 30px rgba(0,0,0,0.1); display: none; 
+                height: auto !important; max-height: calc(100vh - 60px); overflow-y: auto;
+            }
+            .vl-menu.active { display: flex; } 
+
+            .vl-menu-item { width: 100%; height: auto !important; flex-direction: column; align-items: flex-start; border-bottom: 1px solid #f0f0f0; padding: 0; }
+            .vl-menu-link { width: 100%; padding: 15px 20px; box-sizing: border-box; font-size: 15px; height: auto !important; }
+
+            .vl-dropdown, .vl-mega-menu {
+                position: static; width: 100%; opacity: 1; visibility: visible; transform: none;
+                box-shadow: none; border-radius: 0; border-top: none;
+                background: #fdfdfd; padding: 0 20px; display: none; 
+            }
+
+            .vl-menu-item.active .vl-dropdown, .vl-menu-item.active .vl-mega-menu { display: block; padding-bottom: 15px; }
+            .vl-menu-item.active .vl-menu-link { color: #db1f32; font-weight: 600; }
+            .vl-menu-item.active .vl-menu-link svg { transform: rotate(180deg); stroke: #db1f32; }
+
+            .vl-mega-news, .vl-mega-courses, .vl-mega-student, .vl-student-cols { flex-direction: column; gap: 15px; }
+            .vl-mega-courses, .vl-mega-student { padding: 10px 0; }
+            .vl-news-card { display: flex; align-items: center; text-align: left; gap: 15px; border-bottom: 1px dashed #eee; padding-bottom: 10px;}
+            .vl-news-img { width: 80px; height: 50px; margin-bottom: 0; border-radius: 4px; }
+            .vl-course-title { margin-top: 20px; font-size: 13px; }
+            .vl-course-title:first-child { margin-top: 0; }
+            .vl-drop-link { padding: 10px 0; }
+            .vl-student-img-wrap { display: none; } 
+
+            .vl-footer-inner {
+                width: 100% !important;
+                padding-left: 15px;
+                padding-right: 15px;
+                flex-direction: column;
+            }
+
+            .hero-banner {
+                width: 100%;
+            }
+
+            .hero-banner-content {
+                right: 5%;
+                bottom: 7%;
+                left: 5%;
+                gap: 10px;
+            }
+
+            .hero-banner-subtitle {
+                margin-top: 6px;
+            }
+
+            .hero-banner-cta {
+                gap: 8px;
+                padding: 8px 10px 8px 14px;
+            }
+
+            .campus-highlights {
+                padding: 36px 20px 44px;
+            }
+
+            .campus-intro {
+                margin-bottom: 26px;
+            }
+
+            .campus-video {
+                margin-top: 36px;
+            }
+
+            .campus-story-text {
+                width: 62%;
+                font-size: clamp(12px, 3.2vw, 20px);
+                line-height: 1.3;
+            }
+
+            .facility-gallery {
+                padding-top: 24px;
+            }
+
+            .facility-gallery-tabs {
+                gap: 8px;
+                padding: 0 12px;
+            }
+
+            .facility-gallery-tab,
+            .facility-gallery-tab[aria-selected="true"] {
+                min-height: 50px;
+                flex: 1 1 0;
+                padding: 8px 5px;
+                font-size: 12px;
+            }
+
+            .facility-gallery-panel {
+                min-height: 250px;
+            }
+
+            .campus-stats {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .campus-stat {
+                min-height: 150px;
+            }
+
+            .footer-col-3 {
+                justify-content: flex-start;
+            }
+
+            .hero-banner-cta-icon {
+                width: clamp(28px, 8vw, 42px);
+                height: clamp(28px, 8vw, 42px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========================================= -->
+    <!-- 1. THANH TOPBAR PHÍA TRÊN CÙNG            -->
+    <!-- ========================================= -->
+    <header class="vl-topbar">
+        <div class="vl-topbar-inner">
+            <a href="https://xettuyen.vanlangsaigon.edu.vn/" target="_blank" class="topbar-btn-apply">Đăng ký xét tuyển</a>
+            <span class="topbar-sep">|</span>
+            <a href="#" class="topbar-link">Liên hệ</a>
+            <span class="topbar-sep">|</span>
+            <div class="topbar-lang-pills">
+                <a href="#" class="lang-pill active">
+                    <img src="https://flagcdn.com/w20/vn.png" alt="VN"> Vietnamese
+                </a>
+                <a href="#" class="lang-pill">
+                    <img src="https://flagcdn.com/w20/gb.png" alt="GB"> English
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================= -->
+    <!-- 2. THANH MENU CHÍNH VÀ LOGO               -->
+    <!-- ========================================= -->
+    <header class="vl-nav-wrapper">
+        <nav class="vl-nav-container">
+        <!-- LOGO BÊN TRÁI -->
+        <a href="#" class="vl-logo-link">
+            <img src="https://lh3.googleusercontent.com/d/1ds9t7cTe0LAdCJpcDJXFkANO-rHoiOvK" alt="Văn Lang Sài Gòn" class="vl-logo-img">
+        </a>
+        
+        <!-- NÚT HAMBURGER DÀNH CHO MOBILE -->
+        <div class="vl-mobile-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul class="vl-menu">
+            <!-- 1. GIỚI THIỆU -->
+            <li class="vl-menu-item dropdown-basic">
+                <a class="vl-menu-link">Giới thiệu <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+                <div class="vl-dropdown">
+                    <ul class="vl-drop-list">
+                        <li class="vl-drop-item"><a href="https://vanlangsaigon.edu.vn/cao-dang-van-lang-sai-gon/" class="vl-drop-link"><span class="vl-drop-text">Giới thiệu VLSC</span></a></li>
+                        <li class="vl-drop-item"><a href="https://vanlangsaigon.edu.vn/gioi-thieu-cao-dang-van-lang-sai-gon/" class="vl-drop-link"><span class="vl-drop-text">Ban Giám Hiệu</span></a></li>
+                        <li class="vl-drop-item"><a href="https://vanlangsaigon.edu.vn/cong-khai-giao-duc/" class="vl-drop-link"><span class="vl-drop-text">Công khai giáo dục</span></a></li>
+                        <li class="vl-drop-item"><a href="https://vanlangsaigon.edu.vn/chuyen-tham-quan-thuc-te-ao-cao-dang-van-lang-sai-gon/" class="vl-drop-link"><span class="vl-drop-text">Khám phá 360 Virtual Tour <span class="vl-badge-new">NEW</span></span></a></li>
+                        <li class="vl-drop-item"><a href="https://vanlangsaigon.edu.vn/co-so-vat-chat/" class="vl-drop-link"><span class="vl-drop-text">Cơ sở vật chất <span class="vl-badge-new">NEW</span></span></a></li>
+                        <li class="vl-drop-item"><a href="https://vanlangsaigon.edu.vn/flipbook/vlsc-brochure-2026/" class="vl-drop-link"><span class="vl-drop-text">Brochure 2026 - 24 tháng sẵn sàng bước ra thế giới</span></a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <!-- 2. TIN TỨC -->
+            <li class="vl-menu-item">
+                <a class="vl-menu-link">Tin tức <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+                <div class="vl-mega-menu vl-mega-news">
+                    <a href="https://vanlangsaigon.edu.vn/goc-nhin-bao-chi/" class="vl-news-card">
+                        <img src="https://lh3.googleusercontent.com/d/1CqSmD2U5wAvm3tTDPTmlWqykr_1w-IBA" class="vl-news-img" alt="Góc nhìn báo chí">
+                        <div class="vl-news-title">Góc nhìn báo chí</div>
+                    </a>
+                    <a href="https://vanlangsaigon.edu.vn/goc-nhin-doanh-nghiep/" class="vl-news-card">
+                        <img src="https://lh3.googleusercontent.com/d/1CqSmD2U5wAvm3tTDPTmlWqykr_1w-IBA" class="vl-news-img" alt="Góc nhìn Doanh nghiệp">
+                        <div class="vl-news-title">Góc nhìn Doanh nghiệp</div>
+                    </a>
+                    <a href="https://vanlangsaigon.edu.vn/su-kien/" class="vl-news-card">
+                        <img src="https://lh3.googleusercontent.com/d/1CqSmD2U5wAvm3tTDPTmlWqykr_1w-IBA" class="vl-news-img" alt="Sự kiện VLSC">
+                        <div class="vl-news-title">Sự kiện VLSC</div>
+                    </a>
+                    <a href="https://vanlangsaigon.edu.vn/thong-bao/" class="vl-news-card">
+                        <img src="https://lh3.googleusercontent.com/d/1CqSmD2U5wAvm3tTDPTmlWqykr_1w-IBA" class="vl-news-img" alt="Thông báo">
+                        <div class="vl-news-title">Thông báo</div>
+                    </a>
+                </div>
+            </li>
+
+            <!-- 3. TUYỂN SINH -->
+            <li class="vl-menu-item dropdown-basic">
+                <a class="vl-menu-link">Tuyển sinh <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+                <div class="vl-dropdown">
+                    <ul class="vl-drop-list">
+                        <li class="vl-drop-item"><a href="https://vanlangsaigon.edu.vn/tuyen-sinh/" class="vl-drop-link"><span class="vl-drop-text">Tin Tuyển sinh</span></a></li>
+                        <li class="vl-drop-item"><a href="https://xettuyen.vanlangsaigon.edu.vn/" class="vl-drop-link"><span class="vl-drop-text">Đăng ký xét tuyển <span class="vl-badge-new">NEW</span></span></a></li>
+                        <li class="vl-drop-item"><a href="https://vanlangsaigon.edu.vn/hoc-phi-va-hoc-bong-nam-2025/" class="vl-drop-link"><span class="vl-drop-text">Học phí - Học bổng <span class="vl-badge-new">NEW</span></span></a></li>
+                        <li class="vl-drop-item"><a href="https://vanlangsaigon.edu.vn/quy-trinh-nhap-hoc-cao-dang-van-lang-sai-gon/" class="vl-drop-link"><span class="vl-drop-text">Hướng dẫn nhập học</span></a></li>
+                        <li class="vl-drop-item"><a href="https://vanlangsaigon.edu.vn/quy-che-tuyen-sinh/" class="vl-drop-link"><span class="vl-drop-text">Quy chế tuyển sinh</span></a></li>
+                        <li class="vl-drop-item"><a href="https://vanlangsaigon.edu.vn/tuyen-sinh-quoc-te/" class="vl-drop-link"><span class="vl-drop-text">Tuyển sinh quốc tế</span></a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <!-- 4. NGÀNH ĐÀO TẠO -->
+            <li class="vl-menu-item">
+                <a class="vl-menu-link">Ngành đào tạo <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+                <div class="vl-mega-menu vl-mega-courses">
+                    <!-- Cột 1 -->
+                    <div class="vl-course-col">
+                        <div class="vl-course-title">
+                            <img class="vl-course-icon" src="https://lh3.googleusercontent.com/d/1CqSmD2U5wAvm3tTDPTmlWqykr_1w-IBA" alt="icon">
+                            KINH TẾ - QUẢN TRỊ
+                        </div>
+                        <ul class="vl-course-list">
+                            <li class="vl-course-item"><a href="#">Quản trị kinh doanh</a></li>
+                            <li class="vl-course-item"><a href="#">Kinh doanh thương mại</a></li>
+                            <li class="vl-course-item"><a href="#">Thương mại điện tử</a></li>
+                            <li class="vl-course-item"><a href="#">Tài chính ngân hàng</a></li>
+                            <li class="vl-course-item"><a href="#">QTKD Bất động sản</a></li>
+                            <li class="vl-course-item"><a href="#">Quản trị nhân sự</a></li>
+                            <li class="vl-course-item"><a href="#">Quản trị văn phòng (Thư ký Y khoa)</a></li>
+                            <li class="vl-course-item"><a href="#">Kế toán</a></li>
+                            <li class="vl-course-item"><a href="#">Quản lý công nghiệp</a></li>
+                            <li class="vl-course-item"><a href="#">CN Logistic</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Cột 2 -->
+                    <div class="vl-course-col">
+                        <div class="vl-course-title">
+                            <img class="vl-course-icon" src="https://lh3.googleusercontent.com/d/1CqSmD2U5wAvm3tTDPTmlWqykr_1w-IBA" alt="icon">
+                            CÔNG NGHỆ - THIẾT KẾ
+                        </div>
+                        <ul class="vl-course-list">
+                            <li class="vl-course-item"><a href="#">Công nghệ thông tin</a></li>
+                            <li class="vl-course-item"><a href="#">Công nghệ thông tin (UDPM)</a></li>
+                            <li class="vl-course-item"><a href="#">Công nghệ AI</a></li>
+                            <li class="vl-course-item"><a href="#">Công nghệ bán dẫn</a></li>
+                            <li class="vl-course-item"><a href="#">Công nghệ ô tô</a></li>
+                            <li class="vl-course-item"><a href="#">Thiết kế đồ hoạ</a></li>
+                            <li class="vl-course-item"><a href="#">Đồ hoạ đa phương tiện</a></li>
+                            <li class="vl-course-item"><a href="#">Thiết kế nội thất</a></li>
+                            <li class="vl-course-item"><a href="#">Quản lý xây dựng</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Cột 3 -->
+                    <div class="vl-course-col">
+                        <div class="vl-course-title">
+                            <img class="vl-course-icon" src="https://lh3.googleusercontent.com/d/1CqSmD2U5wAvm3tTDPTmlWqykr_1w-IBA" alt="icon">
+                            TRUYỀN THÔNG - MARKETING
+                        </div>
+                        <ul class="vl-course-list">
+                            <li class="vl-course-item"><a href="#">Marketing</a></li>
+                            <li class="vl-course-item"><a href="#">CN Digital Marketing</a></li>
+                            <li class="vl-course-item"><a href="#">Quan hệ công chúng</a></li>
+                            <li class="vl-course-item"><a href="#">Truyền thông đa phương tiện</a></li>
+                        </ul>
+                        <div class="vl-course-title">
+                            <img class="vl-course-icon" src="https://lh3.googleusercontent.com/d/1CqSmD2U5wAvm3tTDPTmlWqykr_1w-IBA" alt="icon">
+                            NGÔN NGỮ
+                        </div>
+                        <ul class="vl-course-list">
+                            <li class="vl-course-item"><a href="#">Tiếng Anh</a></li>
+                            <li class="vl-course-item"><a href="#">Tiếng Nhật</a></li>
+                            <li class="vl-course-item"><a href="#">Tiếng Hàn Quốc</a></li>
+                            <li class="vl-course-item"><a href="#">Tiếng Đức</a></li>
+                            <li class="vl-course-item"><a href="#">Tiếng Trung Quốc</a></li>
+                            <li class="vl-course-item"><a href="#">Tiếng Việt và Văn hoá Việt Nam</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Cột 4 -->
+                    <div class="vl-course-col">
+                        <div class="vl-course-title">
+                            <img class="vl-course-icon" src="https://lh3.googleusercontent.com/d/1CqSmD2U5wAvm3tTDPTmlWqykr_1w-IBA" alt="icon">
+                            DU LỊCH - KHÁCH SẠN - NHÀ HÀNG
+                        </div>
+                        <ul class="vl-course-list">
+                            <li class="vl-course-item"><a href="#">Quản trị dịch vụ du lịch và lữ hành</a></li>
+                            <li class="vl-course-item"><a href="#">Quản trị khách sạn</a></li>
+                            <li class="vl-course-item"><a href="#">Quản trị nhà hàng và Dịch vụ ăn uống</a></li>
+                            <li class="vl-course-item"><a href="#">Kỹ thuật pha chế đồ uống</a></li>
+                        </ul>
+                        <div class="vl-course-title">
+                            <img class="vl-course-icon" src="https://lh3.googleusercontent.com/d/1CqSmD2U5wAvm3tTDPTmlWqykr_1w-IBA" alt="icon">
+                            SỨC KHOẺ & SẮC ĐẸP
+                        </div>
+                        <ul class="vl-course-list">
+                            <li class="vl-course-item"><a href="#">Chăm sóc sắc đẹp</a></li>
+                            <li class="vl-course-item"><a href="#">Kỹ thuật tạo mẫu tóc</a></li>
+                            <li class="vl-course-item"><a href="#">Vật lý trị liệu và phục hồi chức năng</a></li>
+                            <li class="vl-course-item"><a href="#">Y học cổ truyền</a></li>
+                            <li class="vl-course-item"><a href="#">Điều dưỡng (CN Nha khoa)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+
+            <!-- 5. ĐÀO TẠO -->
+            <li class="vl-menu-item dropdown-basic">
+                <a class="vl-menu-link">Đào tạo <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+                <div class="vl-dropdown">
+                    <ul class="vl-drop-list">
+                        <li class="vl-drop-item"><a href="#" class="vl-drop-link"><span class="vl-drop-text">Quy chế - Quy định</span></a></li>
+                        <li class="vl-drop-item"><a href="#" class="vl-drop-link"><span class="vl-drop-text">Biểu mẫu đào tạo</span></a></li>
+                        <li class="vl-drop-item"><a href="#" class="vl-drop-link"><span class="vl-drop-text">Hướng dẫn đăng nhập Email</span></a></li>
+                        <li class="vl-drop-item"><a href="#" class="vl-drop-link"><span class="vl-drop-text">Kế hoạch đào tạo</span></a></li>
+                        <li class="vl-drop-item"><a href="#" class="vl-drop-link indented"><span class="vl-drop-text">Năm học 2025 - 2026</span></a></li>
+                        <li class="vl-drop-item"><a href="#" class="vl-drop-link indented"><span class="vl-drop-text">Năm học 2024 - 2025</span></a></li>
+                        <li class="vl-drop-item"><a href="#" class="vl-drop-link indented"><span class="vl-drop-text">Năm học 2023 - 2024</span></a></li>
+                        <li class="vl-drop-item"><a href="#" class="vl-drop-link indented"><span class="vl-drop-text">Năm học 2022 - 2023</span></a></li>
+                        <li class="vl-drop-item"><a href="#" class="vl-drop-link indented"><span class="vl-drop-text">Năm học 2021 - 2022</span></a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <!-- 6. SINH VIÊN -->
+            <li class="vl-menu-item">
+                <a class="vl-menu-link">Sinh viên <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+                <div class="vl-mega-menu vl-mega-student">
+                    <div class="vl-student-cols">
+                        <ul class="vl-drop-list vl-student-col">
+                            <li class="vl-drop-item"><a href="#" class="vl-drop-link"><span class="vl-drop-text">Quy chế - Quy định</span></a></li>
+                            <li class="vl-drop-item"><a href="#" class="vl-drop-link"><span class="vl-drop-text">Sinh viên cần biết</span></a></li>
+                            <li class="vl-drop-item"><a href="#" class="vl-drop-link"><span class="vl-drop-text">Thành tựu sinh viên</span></a></li>
+                            <li class="vl-drop-item"><a href="#" class="vl-drop-link indented"><span class="vl-drop-text">Giải thưởng</span></a></li>
+                            <li class="vl-drop-item"><a href="#" class="vl-drop-link indented"><span class="vl-drop-text">Dự án sinh viên</span></a></li>
+                            <li class="vl-drop-item"><a href="#" class="vl-drop-link"><span class="vl-drop-text">Hoạt động sinh viên</span></a></li>
+                            <li class="vl-drop-item"><a href="#" class="vl-drop-link indented"><span class="vl-drop-text">Phong trào</span></a></li>
+                        </ul>
+                        <ul class="vl-drop-list vl-student-col">
+                            <li class="vl-drop-item"><a href="#" class="vl-drop-link"><span class="vl-drop-text">Trải nghiệm sinh viên <span class="vl-badge-new">NEW</span></span></a></li>
+                            <li class="vl-drop-item"><a href="#" class="vl-drop-link"><span class="vl-drop-text">Cơ hội quốc tế</span></a></li>
+                            <li class="vl-drop-item"><a href="#" class="vl-drop-link"><span class="vl-drop-text">Kiến tập - Thực tập</span></a></li>
+                            <li class="vl-drop-item"><a href="#" class="vl-drop-link"><span class="vl-drop-text">Việc làm sinh viên</span></a></li>
+                            <li class="vl-drop-item"><a href="#" class="vl-drop-link"><span class="vl-drop-text">Sổ tay sinh viên</span></a></li>
+                            <li class="vl-drop-item"><a href="#" class="vl-drop-link"><span class="vl-drop-text">Biểu mẫu sinh viên</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="vl-student-img-wrap">
+                        <img src="https://i.ibb.co/dsQRbcp2/11-removebg-preview.png" class="vl-student-img" alt="Sinh viên">
+                    </div>
+                </div>
+            </li>
+
+            <!-- 7. HÀNH CHÍNH -->
+            <li class="vl-menu-item dropdown-basic">
+                <a class="vl-menu-link">Hành chính <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+                <div class="vl-dropdown vl-dropdown-right" style="min-width: 290px;">
+                    <ul class="vl-drop-list">
+                        <li class="vl-drop-item"><a href="#" class="vl-drop-link"><span class="vl-drop-text">Văn bản trường</span></a></li>
+                        <li class="vl-drop-item"><a href="#" class="vl-drop-link indented"><span class="vl-drop-text">Nội quy - Quy định - Quyết định</span></a></li>
+                        <li class="vl-drop-item"><a href="#" class="vl-drop-link indented"><span class="vl-drop-text">Quy trình nhân sự</span></a></li>
+                        <li class="vl-drop-item"><a href="#" class="vl-drop-link indented"><span class="vl-drop-text">Thông báo</span></a></li>
+                        <li class="vl-drop-item"><a href="#" class="vl-drop-link"><span class="vl-drop-text">Biểu mẫu</span></a></li>
+                        <li class="vl-drop-item"><a href="#" class="vl-drop-link"><span class="vl-drop-text">Tin tuyển dụng</span></a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-banner" aria-label="Cơ sở vật chất Văn Lang Sài Gòn">
+            <img src="images/01_AC.png" alt="Cơ sở vật chất hiện đại của Văn Lang Sài Gòn" class="hero-banner-image">
+            <div class="hero-banner-content">
+                <h1 class="hero-banner-title">
+                    CƠ SỞ VẬT CHẤT
+                    <span class="hero-banner-subtitle">HIỆN ĐẠI, CHUẨN QUỐC TẾ</span>
+                </h1>
+                <a href="https://vanlangsaigon.edu.vn/chuyen-tham-quan-thuc-te-ao-cao-dang-van-lang-sai-gon/" class="hero-banner-cta">
+                    <span>THAM QUAN<br>ONLINE NGAY</span>
+                    <span class="hero-banner-cta-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m15.5 15.5 5 5"></path></svg>
+                    </span>
+                </a>
+            </div>
+        </section>
+        <section class="campus-highlights" aria-label="Điểm nổi bật cơ sở vật chất">
+            <p class="campus-intro">
+                <strong>Trường Cao đẳng Văn Lang Sài Gòn</strong> tự hào mang đến không gian học tập, nghiên cứu, phát triển toàn diện cho sinh viên.
+            </p>
+            <div class="campus-stats">
+                <article class="campus-stat">
+                    <h2 class="campus-stat-value">500.000 m<sup>2</sup></h2>
+                    <svg class="campus-stat-icon" viewBox="0 0 64 64" aria-hidden="true">
+                        <path d="m8 26 12-8 12 4 12-6 12 8-10 3-8 12-14-2-10 8z"></path>
+                        <path d="m8 26 6 27 20-9 14-2 8-22"></path>
+                        <path d="m14 53 5-12 11-2 8-12 12-3"></path>
+                        <path d="M25 14c0-5 4-9 9-9s9 4 9 9c0 7-9 17-9 17s-9-10-9-17z"></path>
+                        <circle cx="34" cy="14" r="3" class="icon-fill"></circle>
+                    </svg>
+                </article>
+                <article class="campus-stat">
+                    <h2 class="campus-stat-value">06 tòa nhà</h2>
+                    <svg class="campus-stat-icon" viewBox="0 0 64 64" aria-hidden="true">
+                        <path d="M7 58h50M12 58V23h10v35M22 58V8h20v50M42 58V18h10v40"></path>
+                        <path d="M16 29h2m-2 8h2m-2 8h2m-2 8h2m11-39h2m7 0h2m-11 8h2m7 0h2m-11 8h2m7 0h2m-11 8h2m7 0h2m-11 8h2m7 0h2m11-17h2m-2 8h2m-2 8h2"></path>
+                        <path d="M5 31h7M52 27h7"></path>
+                    </svg>
+                </article>
+                <article class="campus-stat">
+                    <h2 class="campus-stat-value">100+ phòng học</h2>
+                    <svg class="campus-stat-icon" viewBox="0 0 64 64" aria-hidden="true">
+                        <path d="M32 17c-6-6-14-8-23-8v35c9 0 17 2 23 8 6-6 14-8 23-8V9c-9 0-17 2-23 8z"></path>
+                        <path d="M32 17v35M14 17c5 1 9 3 12 6m-12 2c5 1 9 3 12 6m-12 2c5 1 9 3 12 6m24-22c-5 1-9 3-12 6m12 2c-5 1-9 3-12 6m12 2c-5 1-9 3-12 6M10 58h44M14 63h36"></path>
+                    </svg>
+                </article>
+            </div>
+            <div class="campus-video">
+                <iframe src="https://www.youtube-nocookie.com/embed/JCCaOuqc6Og" title="Trải nghiệm cơ sở vật chất Trường Cao đẳng Văn Lang Sài Gòn" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </section>
+        <section class="campus-story" aria-label="Không gian học tập tại Văn Lang Sài Gòn">
+            <img src="images/02_AC2.png" alt="Không gian kiến trúc và khuôn viên Trường Cao đẳng Văn Lang Sài Gòn" class="campus-story-image">
+            <p class="campus-story-text"><strong>Tại Cao đẳng Văn Lang Sài Gòn,</strong> mỗi không gian học tập đều được đầu tư để trở thành nơi khơi nguồn sáng tạo và nuôi dưỡng ước mơ của sinh viên.</p>
+        </section>
+        <section class="facility-gallery" aria-label="Thư viện hình ảnh cơ sở vật chất">
+            <div class="facility-gallery-tabs" role="tablist" aria-label="Chọn khu vực cơ sở vật chất">
+                <button class="facility-gallery-tab" id="facility-tab-campus" type="button" role="tab" aria-selected="true" aria-controls="facility-gallery-panel" tabindex="0" data-facility="Khuôn viên">Khuôn viên</button>
+                <button class="facility-gallery-tab" id="facility-tab-auditorium" type="button" role="tab" aria-selected="false" aria-controls="facility-gallery-panel" tabindex="-1" data-facility="Hội trường">Hội trường</button>
+                <button class="facility-gallery-tab" id="facility-tab-sports" type="button" role="tab" aria-selected="false" aria-controls="facility-gallery-panel" tabindex="-1" data-facility="Khu thể thao đa năng">Khu thể thao đa năng</button>
+            </div>
+            <div class="facility-gallery-panel" id="facility-gallery-panel" role="tabpanel" aria-labelledby="facility-tab-campus" tabindex="0">
+                <div class="gallery-wrapper" data-gallery="Khuôn viên">
+                    <div class="swiper gallery-main">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="images/03_KV1.png" alt="Khuôn viên Văn Lang Sài Gòn - tòa nhà chính"></div>
+                            <div class="swiper-slide"><img src="images/04_KV2.png" alt="Khuôn viên Văn Lang Sài Gòn - tòa nhà giữa cây xanh"></div>
+                            <div class="swiper-slide"><img src="images/05_KV3.png" alt="Khuôn viên Văn Lang Sài Gòn - đài phun nước"></div>
+                            <div class="swiper-slide"><img src="images/06_KV4.png" alt="Khuôn viên Văn Lang Sài Gòn - khu nhà tròn"></div>
+                        </div>
+                        <div class="swiper-button-next gallery-nav-btn" aria-label="Ảnh tiếp theo"></div>
+                        <div class="swiper-button-prev gallery-nav-btn" aria-label="Ảnh trước"></div>
+                    </div>
+                    <div class="swiper gallery-thumbs" aria-label="Chọn ảnh khuôn viên">
+                        <div class="swiper-wrapper"></div>
+                    </div>
+                </div>
+                <div class="gallery-wrapper" data-gallery="Hội trường" hidden>
+                    <div class="swiper gallery-main">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="images/07_HT1.png" alt="Hội trường Văn Lang Sài Gòn - khán phòng"></div>
+                            <div class="swiper-slide"><img src="images/08_HT2.png" alt="Hội trường Văn Lang Sài Gòn - sân khấu sự kiện"></div>
+                            <div class="swiper-slide"><img src="images/09_HT3.png" alt="Hội trường Văn Lang Sài Gòn - khán phòng tầng lửng"></div>
+                            <div class="swiper-slide"><img src="images/10_HT4.png" alt="Hội trường Văn Lang Sài Gòn - khán phòng đa năng"></div>
+                        </div>
+                        <div class="swiper-button-next gallery-nav-btn" aria-label="Ảnh tiếp theo"></div>
+                        <div class="swiper-button-prev gallery-nav-btn" aria-label="Ảnh trước"></div>
+                    </div>
+                    <div class="swiper gallery-thumbs" aria-label="Chọn ảnh hội trường">
+                        <div class="swiper-wrapper"></div>
+                    </div>
+                </div>
+                <div class="gallery-wrapper" data-gallery="Khu thể thao đa năng" hidden>
+                    <div class="swiper gallery-main">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="images/11_KTT1.png" alt="Khu thể thao đa năng - sân bóng rổ trong nhà"></div>
+                            <div class="swiper-slide"><img src="images/12_KTT2.png" alt="Khu thể thao đa năng - khu tập luyện ngoài trời"></div>
+                            <div class="swiper-slide"><img src="images/13_KTT3.png" alt="Khu thể thao đa năng - phòng tập thể hình"></div>
+                            <div class="swiper-slide"><img src="images/14_KTT4.png" alt="Khu thể thao đa năng - hoạt động bóng rổ"></div>
+                        </div>
+                        <div class="swiper-button-next gallery-nav-btn" aria-label="Ảnh tiếp theo"></div>
+                        <div class="swiper-button-prev gallery-nav-btn" aria-label="Ảnh trước"></div>
+                    </div>
+                    <div class="swiper gallery-thumbs" aria-label="Chọn ảnh khu thể thao đa năng">
+                        <div class="swiper-wrapper"></div>
+                    </div>
+                </div>
+                <p class="facility-gallery-placeholder" hidden></p>
+            </div>
+        </section>
+        <section class="classroom-section" aria-label="Phòng học chuẩn quốc tế và khu thực hành">
+            <div class="classroom-feature">
+                <div class="classroom-feature-heading">
+                    <h2 class="classroom-feature-title">PHÒNG HỌC<br>CHUẨN QUỐC TẾ</h2>
+                    <ul class="classroom-feature-list">
+                        <li>Phòng học rộng rãi</li>
+                        <li>Máy chiếu laser cực nét</li>
+                        <li>Bảng tương tác đồng bộ máy tính</li>
+                        <li>Wifi tốc độ cao</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="swiper classroom-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="images/07_HT1.png" alt="Không gian hội trường Trường Cao đẳng Văn Lang Sài Gòn">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/08_HT2.png" alt="Sự kiện tại hội trường Trường Cao đẳng Văn Lang Sài Gòn">
+                    </div>
+                </div>
+                <div class="swiper-button-next gallery-nav-btn" aria-label="Ảnh phòng học tiếp theo"></div>
+                <div class="swiper-button-prev gallery-nav-btn" aria-label="Ảnh phòng học trước"></div>
+            </div>
+            <div class="classroom-description">
+                <h2>KHU THỰC HÀNH CHUYÊN NGHIỆP</h2>
+                <p>Hệ thống phòng thực hành được đầu tư bài bản và vận hành như một doanh nghiệp thực thụ từ khách sạn, bar, spa đến hair &amp; make up...</p>
+            </div>
+        </section>
+        <section class="practice-gallery" aria-label="Thư viện hình ảnh khu thực hành">
+            <div class="practice-gallery-tabs" role="tablist" aria-label="Chọn ngành thực hành">
+                <button class="practice-gallery-tab" id="practice-tab-hospitality" type="button" role="tab" aria-selected="true" aria-controls="practice-gallery-panel" tabindex="0" data-practice="hospitality">Du lịch - Khách sạn</button>
+                <button class="practice-gallery-tab" id="practice-tab-automotive" type="button" role="tab" aria-selected="false" aria-controls="practice-gallery-panel" tabindex="-1" data-practice="automotive">Ô tô - Công nghệ</button>
+                <button class="practice-gallery-tab" id="practice-tab-computer" type="button" role="tab" aria-selected="false" aria-controls="practice-gallery-panel" tabindex="-1" data-practice="computer">LAB - Máy tính</button>
+                <button class="practice-gallery-tab" id="practice-tab-beauty" type="button" role="tab" aria-selected="false" aria-controls="practice-gallery-panel" tabindex="-1" data-practice="beauty">Hair - Makeup - Spa</button>
+            </div>
+            <div class="practice-gallery-panel" id="practice-gallery-panel" role="tabpanel" aria-labelledby="practice-tab-hospitality" tabindex="0">
+                <div class="practice-gallery-content" data-practice-content="hospitality">
+                    <div class="swiper practice-gallery-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="images/15_DLKS1.png" alt="Phòng khách sạn thực hành với giường lớn"></div>
+                            <div class="swiper-slide"><img src="images/16_DLKS2.png" alt="Khu vực bàn làm việc trong phòng khách sạn thực hành"></div>
+                            <div class="swiper-slide"><img src="images/17_DLKS3.png" alt="Phòng khách sạn thực hành với hai giường"></div>
+                            <div class="swiper-slide"><img src="images/18_DLKS4.png" alt="Phòng thực hành du lịch với quầy mô phỏng"></div>
+                        </div>
+                        <div class="swiper-button-next gallery-nav-btn" aria-label="Ảnh thực hành tiếp theo"></div>
+                        <div class="swiper-button-prev gallery-nav-btn" aria-label="Ảnh thực hành trước"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="swiper practice-gallery-thumbs" aria-label="Chọn ảnh du lịch - khách sạn">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="images/15_DLKS1.png" alt="Xem phòng khách sạn thực hành với giường lớn"></div>
+                            <div class="swiper-slide"><img src="images/16_DLKS2.png" alt="Xem khu vực bàn làm việc trong phòng khách sạn thực hành"></div>
+                            <div class="swiper-slide"><img src="images/17_DLKS3.png" alt="Xem phòng khách sạn thực hành với hai giường"></div>
+                            <div class="swiper-slide"><img src="images/18_DLKS4.png" alt="Xem phòng thực hành du lịch với quầy mô phỏng"></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="practice-gallery-placeholder" hidden></p>
+            </div>
+        </section>
+        <section class="library-gallery" aria-labelledby="library-gallery-title">
+            <div class="library-gallery-heading">
+                <h2 id="library-gallery-title">KHÔNG GIAN THƯ VIỆN</h2>
+                <p>Thư viện view 360° với hơn 40.000 đầu sách<br>và khu tự học xịn sò</p>
+            </div>
+            <div class="swiper library-gallery-slider" aria-label="Hình ảnh không gian thư viện">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="images/20_KGTV1.png" alt="Khu đọc sách giữa các kệ sách"></div>
+                    <div class="swiper-slide"><img src="images/21_KGTV2.png" alt="Khu thư viện với sofa và không gian tự học"></div>
+                    <div class="swiper-slide"><img src="images/22_KGTV3.png" alt="Khu tự học với bàn dài và ghế màu cam"></div>
+                </div>
+                <div class="swiper-button-next gallery-nav-btn" aria-label="Ảnh thư viện tiếp theo"></div>
+                <div class="swiper-button-prev gallery-nav-btn" aria-label="Ảnh thư viện trước"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+        <section class="dormitory-section" aria-labelledby="dormitory-title">
+            <header class="dormitory-banner">
+                <img src="images/23_AC3.png" alt="" aria-hidden="true">
+                <div class="dormitory-banner-content">
+                    <h2 id="dormitory-title">KÝ TÚC XÁ TIỆN NGHI</h2>
+                    <p>Ký túc xá hiện đại, hệ thống an ninh 24/7 mang đến không gian sống thoải mái và an toàn cho sinh viên</p>
+                </div>
+            </header>
+            <div class="dormitory-gallery">
+                <div class="dormitory-gallery-row">
+                    <figure class="dormitory-photo">
+                        <img src="images/24_KTX1.png" alt="Phòng ở ký túc xá Đặng Thùy Trâm">
+                        <figcaption class="dormitory-photo-caption">Ký túc xá Đặng Thùy Trâm</figcaption>
+                    </figure>
+                    <div class="dormitory-photo-stack">
+                        <figure class="dormitory-photo">
+                            <img src="images/25_KTX2.png" alt="Khu bếp và sinh hoạt chung tại ký túc xá">
+                        </figure>
+                        <figure class="dormitory-photo">
+                            <img src="images/26_KTX3.png" alt="Khu giặt sấy tại ký túc xá">
+                        </figure>
+                    </div>
+                </div>
+                <div class="dormitory-gallery-row dormitory-gallery-row-reverse">
+                    <div class="dormitory-photo-stack">
+                        <figure class="dormitory-photo">
+                            <img src="images/26_KTX4.png" alt="Khu tự học trong ký túc xá">
+                        </figure>
+                        <figure class="dormitory-photo">
+                            <img src="images/27_KTX5.png" alt="Giường tầng và tủ đồ tại ký túc xá">
+                        </figure>
+                    </div>
+                    <figure class="dormitory-photo">
+                        <img src="images/28_KTX6.png" alt="Phòng ở ký túc xá Phan Huy Ích">
+                        <figcaption class="dormitory-photo-caption">Ký túc xá Phan Huy Ích</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+        <section class="learning-experience" aria-labelledby="learning-experience-title">
+            <h2 id="learning-experience-title">TRẢI NGHIỆM KHÔNG GIAN HỌC TẬP<br>ĐẲNG CẤP QUỐC TẾ</h2>
+            <p>Tại Cao đẳng Văn Lang Sài Gòn, mỗi không gian học tập đều được đầu tư để trở thành nơi khơi nguồn sáng tạo và nuôi dưỡng ước mơ của sinh viên.</p>
+        </section>
+    </main>
+
+    <!-- ============================================================== -->
+    <!-- 8. FOOTER CHÍNH - THUẦN CODE & LOGOS (THEO ẢNH MỚI BẠN GỬI)    -->
+    <!-- ============================================================== -->
+    <footer class="vl-footer">
+        <div class="vl-footer-inner">
+            <!-- Cột 1: Đơn vị cùng hệ thống & Logos -->
+            <div class="footer-col-1">
+                <h4 class="footer-heading">Đơn vị cùng hệ thống</h4>
+                <div class="footer-divider-line"></div>
+                
+                <!-- Logo chính: VANLANG UNIVERSITY -->
+                <div class="vlu-main-logo">
+                    <img src="images/VLU_Logo_Final_VLU_logo ngang_Eng_White.png" alt="VANLANG UNIVERSITY" class="img-vlu">
+                </div>
+                
+                <!-- 3 Logo phụ phía dưới: ĐH KT BD, UPD, UTS -->
+                <div class="footer-sub-logos">
+                    <img src="images/LOGO ĐẠI HỌC KT BD.png" alt="Đại học Kinh tế Bình Dương" class="sub-logo round">
+                    <img src="images/LOGO UPD.png" alt="UPD" class="sub-logo">
+                    <img src="images/LOGO UTS.png" alt="UTS" class="sub-logo">
+                </div>
+            </div>
+
+            <!-- Cột 2: Thông tin liên hệ & Hotline -->
+            <div class="footer-col-2">
+                <h4 class="footer-heading">Đơn vị cùng hệ thống</h4>
+                <div class="footer-divider-line"></div>
+                <p class="footer-contact-line">Địa chỉ: 80/68 Dương Quảng Hàm, Phường An Nhơn, TP.HCM</p>
+                <p class="footer-contact-line">Email: <a href="mailto:tuyensinh@vanlangsaigon.edi.vn" class="footer-link">tuyensinh@vanlangsaigon.edi.vn</a></p>
+                <div class="footer-hotline-wrap">
+                    <a href="tel:0287303999" class="btn-hotline-pill">Hotline: 028 7303 999</a>
+                </div>
+            </div>
+
+            <!-- Cột 3: Bản đồ vị trí Maps -->
+            <div class="footer-col-3">
+                <div class="footer-map-wrapper">
+                    <iframe src="https://www.google.com/maps?q=80%2F68%20%C4%90%C6%B0%E1%BB%9Dng%20D%C6%B0%C6%A1ng%20Qu%E1%BA%A3ng%20H%C3%A0m%2C%20An%20Nh%C6%A1n%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh%20700000&output=embed" title="Bản đồ vị trí Trường Cao Đẳng Văn Lang Sài Gòn tại 80/68 Dương Quảng Hàm, An Nhơn, Hồ Chí Minh" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <button class="back-to-top" type="button" aria-label="Lên đầu trang">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="m6 14 6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+    </button>
+
+    <!-- ========================================= -->
+    <!-- JAVASCRIPT THỰC THI                       -->
+    <!-- ========================================= -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var backToTopButton = document.querySelector('.back-to-top');
+
+            if (backToTopButton) {
+                var updateBackToTopVisibility = function() {
+                    backToTopButton.classList.toggle('is-visible', window.scrollY > 300);
+                };
+
+                window.addEventListener('scroll', updateBackToTopVisibility, { passive: true });
+                updateBackToTopVisibility();
+
+                backToTopButton.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+                    });
+                });
+            }
+
+            var toggleBtn = document.querySelector('.vl-mobile-toggle');
+            var menu = document.querySelector('.vl-menu');
+            var menuItems = document.querySelectorAll('.vl-menu-item');
+
+            if(toggleBtn) {
+                toggleBtn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    menu.classList.toggle('active');
+                });
+            }
+
+            menuItems.forEach(function(item) {
+                var link = item.querySelector('.vl-menu-link');
+                var dropdown = item.querySelector('.vl-dropdown, .vl-mega-menu');
+
+                if (link && dropdown) {
+                    link.addEventListener('click', function(e) {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault(); 
+                            var isActive = item.classList.contains('active');
+
+                            menuItems.forEach(function(otherItem) {
+                                otherItem.classList.remove('active');
+                            });
+
+                            if (!isActive) {
+                                item.classList.add('active');
+                            }
+                        }
+                    });
+                }
+            });
+
+            var facilityTabs = document.querySelectorAll('.facility-gallery-tab');
+            var facilityPanel = document.querySelector('.facility-gallery-panel');
+            var facilityPlaceholder = document.querySelector('.facility-gallery-placeholder');
+            var facilityGalleries = document.querySelectorAll('.gallery-wrapper');
+            var galleryInstances = [];
+
+            function initializeGallery(wrapper) {
+                var main = wrapper.querySelector('.gallery-main');
+                var thumbs = wrapper.querySelector('.gallery-thumbs');
+                var mainContainer = main.querySelector('.swiper-wrapper');
+                var thumbContainer = thumbs.querySelector('.swiper-wrapper');
+
+                Array.prototype.forEach.call(mainContainer.querySelectorAll('.swiper-slide'), function(slide) {
+                    var thumbnailSlide = slide.cloneNode(true);
+                    var image = thumbnailSlide.querySelector('img');
+                    image.alt = 'Xem ' + image.alt;
+                    thumbContainer.appendChild(thumbnailSlide);
+                });
+
+                var galleryThumbs = new Swiper(thumbs, {
+                    slidesPerView: 3,
+                    spaceBetween: 10,
+                    direction: window.innerWidth <= 768 ? 'horizontal' : 'vertical',
+                    loop: true,
+                    watchSlidesProgress: true
+                });
+
+                var galleryMain = new Swiper(main, {
+                    spaceBetween: 10,
+                    loop: true,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false
+                    },
+                    navigation: {
+                        nextEl: main.querySelector('.swiper-button-next'),
+                        prevEl: main.querySelector('.swiper-button-prev')
+                    },
+                    thumbs: {
+                        swiper: galleryThumbs
+                    }
+                });
+
+                galleryMain.on('slideChange', function() {
+                    galleryThumbs.slideToLoop(galleryMain.realIndex);
+                });
+
+                var instance = {
+                    wrapper: wrapper,
+                    main: galleryMain,
+                    thumbs: galleryThumbs
+                };
+                galleryInstances.push(instance);
+                return instance;
+            }
+
+            function selectFacilityTab(tab) {
+                facilityTabs.forEach(function(otherTab) {
+                    var isSelected = otherTab === tab;
+                    otherTab.setAttribute('aria-selected', String(isSelected));
+                    otherTab.tabIndex = isSelected ? 0 : -1;
+                });
+
+                facilityPanel.setAttribute('aria-labelledby', tab.id);
+                var selectedGallery = null;
+                facilityGalleries.forEach(function(gallery) {
+                    var isSelected = gallery.dataset.gallery === tab.dataset.facility;
+                    gallery.hidden = !isSelected;
+                    if (isSelected) {
+                        selectedGallery = gallery;
+                    }
+                });
+
+                facilityPlaceholder.hidden = Boolean(selectedGallery);
+                facilityPlaceholder.textContent = selectedGallery ? '' : 'Hình ảnh ' + tab.dataset.facility + ' sẽ được cập nhật.';
+
+                galleryInstances.forEach(function(instance) {
+                    if (instance.wrapper !== selectedGallery) {
+                        instance.main.autoplay.stop();
+                    }
+                });
+
+                if (selectedGallery && typeof Swiper !== 'undefined') {
+                    var instance = galleryInstances.find(function(galleryInstance) {
+                        return galleryInstance.wrapper === selectedGallery;
+                    }) || initializeGallery(selectedGallery);
+                    instance.thumbs.update();
+                    instance.main.update();
+                    instance.main.autoplay.start();
+                }
+            }
+
+            facilityTabs.forEach(function(tab, index) {
+                tab.addEventListener('click', function() {
+                    selectFacilityTab(tab);
+                });
+
+                tab.addEventListener('keydown', function(event) {
+                    var nextIndex = index;
+
+                    if (event.key === 'ArrowRight') {
+                        nextIndex = (index + 1) % facilityTabs.length;
+                    } else if (event.key === 'ArrowLeft') {
+                        nextIndex = (index - 1 + facilityTabs.length) % facilityTabs.length;
+                    } else if (event.key === 'Home') {
+                        nextIndex = 0;
+                    } else if (event.key === 'End') {
+                        nextIndex = facilityTabs.length - 1;
+                    } else {
+                        return;
+                    }
+
+                    event.preventDefault();
+                    facilityTabs[nextIndex].focus();
+                    selectFacilityTab(facilityTabs[nextIndex]);
+                });
+            });
+
+            if (facilityTabs.length && typeof Swiper !== 'undefined') {
+                selectFacilityTab(document.querySelector('.facility-gallery-tab[aria-selected="true"]'));
+
+                var isMobileLayout = window.innerWidth <= 768;
+                window.addEventListener('resize', function() {
+                    var shouldUseMobileLayout = window.innerWidth <= 768;
+                    if (shouldUseMobileLayout !== isMobileLayout) {
+                        isMobileLayout = shouldUseMobileLayout;
+                        galleryInstances.forEach(function(instance) {
+                            instance.thumbs.changeDirection(isMobileLayout ? 'horizontal' : 'vertical');
+                            instance.thumbs.update();
+                            instance.main.update();
+                        });
+                    }
+                });
+            }
+
+            var practiceTabs = document.querySelectorAll('.practice-gallery-tab');
+            var practicePanel = document.querySelector('.practice-gallery-panel');
+            var practiceContent = document.querySelector('.practice-gallery-content');
+            var practicePlaceholder = document.querySelector('.practice-gallery-placeholder');
+            var practiceSlider = document.querySelector('.practice-gallery-slider');
+            var practiceMainSwiper = null;
+
+            if (practiceTabs.length && practicePanel && practiceContent && practiceSlider && typeof Swiper !== 'undefined') {
+                var practiceThumbs = new Swiper('.practice-gallery-thumbs', {
+                    slidesPerView: 3,
+                    spaceBetween: 16,
+                    loop: true,
+                    watchSlidesProgress: true,
+                    breakpoints: {
+                        769: {
+                            slidesPerView: 3,
+                            spaceBetween: 16
+                        },
+                        320: {
+                            slidesPerView: 3,
+                            spaceBetween: 10
+                        }
+                    }
+                });
+
+                practiceMainSwiper = new Swiper(practiceSlider, {
+                    loop: true,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false
+                    },
+                    navigation: {
+                        nextEl: practiceSlider.querySelector('.swiper-button-next'),
+                        prevEl: practiceSlider.querySelector('.swiper-button-prev')
+                    },
+                    pagination: {
+                        el: practiceSlider.querySelector('.swiper-pagination'),
+                        clickable: true
+                    },
+                    thumbs: {
+                        swiper: practiceThumbs
+                    }
+                });
+
+                function selectPracticeTab(tab) {
+                    practiceTabs.forEach(function(otherTab) {
+                        var isSelected = otherTab === tab;
+                        otherTab.setAttribute('aria-selected', String(isSelected));
+                        otherTab.tabIndex = isSelected ? 0 : -1;
+                    });
+
+                    var hasGallery = tab.dataset.practice === 'hospitality';
+                    practicePanel.setAttribute('aria-labelledby', tab.id);
+                    practiceContent.hidden = !hasGallery;
+                    practicePlaceholder.hidden = hasGallery;
+                    practicePlaceholder.textContent = hasGallery
+                        ? ''
+                        : 'Hình ảnh ' + tab.textContent.trim() + ' sẽ được cập nhật.';
+
+                    if (hasGallery) {
+                        practiceMainSwiper.update();
+                        practiceThumbs.update();
+                        practiceMainSwiper.autoplay.start();
+                    } else {
+                        practiceMainSwiper.autoplay.stop();
+                    }
+                }
+
+                practiceTabs.forEach(function(tab, index) {
+                    tab.addEventListener('click', function() {
+                        selectPracticeTab(tab);
+                    });
+
+                    tab.addEventListener('keydown', function(event) {
+                        var nextIndex = index;
+
+                        if (event.key === 'ArrowRight') {
+                            nextIndex = (index + 1) % practiceTabs.length;
+                        } else if (event.key === 'ArrowLeft') {
+                            nextIndex = (index - 1 + practiceTabs.length) % practiceTabs.length;
+                        } else if (event.key === 'Home') {
+                            nextIndex = 0;
+                        } else if (event.key === 'End') {
+                            nextIndex = practiceTabs.length - 1;
+                        } else {
+                            return;
+                        }
+
+                        event.preventDefault();
+                        practiceTabs[nextIndex].focus();
+                        selectPracticeTab(practiceTabs[nextIndex]);
+                    });
+                });
+            }
+
+            var librarySlider = document.querySelector('.library-gallery-slider');
+
+            if (librarySlider && librarySlider.querySelectorAll('.swiper-slide img').length > 1 && typeof Swiper !== 'undefined') {
+                var libraryWrapper = librarySlider.querySelector('.swiper-wrapper');
+                var librarySlides = Array.prototype.slice.call(libraryWrapper.children);
+                var librarySlideCount = librarySlides.length;
+
+                librarySlides.forEach(function(slide) {
+                    libraryWrapper.appendChild(slide.cloneNode(true));
+                });
+
+                new Swiper(librarySlider, {
+                    slidesPerView: 3,
+                    centeredSlides: true,
+                    spaceBetween: 0,
+                    initialSlide: 1,
+                    loop: true,
+                    breakpoints: {
+                        320: {
+                            slidesPerView: 1.8
+                        },
+                        769: {
+                            slidesPerView: 3
+                        }
+                    },
+                    navigation: {
+                        nextEl: librarySlider.querySelector('.swiper-button-next'),
+                        prevEl: librarySlider.querySelector('.swiper-button-prev')
+                    },
+                    pagination: {
+                        el: librarySlider.querySelector('.swiper-pagination'),
+                        type: 'custom',
+                        renderCustom: function(swiper) {
+                            var activeIndex = swiper.realIndex % librarySlideCount;
+                            var dots = '';
+
+                            for (var index = 0; index < librarySlideCount; index++) {
+                                dots += '<button type="button" class="library-gallery-dot' +
+                                    (index === activeIndex ? ' is-active' : '') +
+                                    '" data-slide-index="' + index +
+                                    '" aria-label="Chuyển đến ảnh thư viện ' + (index + 1) +
+                                    '" aria-current="' + (index === activeIndex) + '"></button>';
+                            }
+
+                            return dots;
+                        }
+                    },
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false
+                    }
+                });
+
+                librarySlider.querySelector('.swiper-pagination').addEventListener('click', function(event) {
+                    var dot = event.target.closest('[data-slide-index]');
+                    if (dot) {
+                        librarySlider.swiper.slideToLoop(Number(dot.dataset.slideIndex));
+                    }
+                });
+            }
+
+            var classroomSlider = document.querySelector('.classroom-slider');
+            var classroomImageSlides = classroomSlider
+                ? classroomSlider.querySelectorAll('.swiper-slide img')
+                : [];
+
+            if (classroomSlider && classroomImageSlides.length > 1 && typeof Swiper !== 'undefined') {
+                classroomSlider.classList.add('has-images');
+                new Swiper(classroomSlider, {
+                    loop: true,
+                    effect: 'fade',
+                    fadeEffect: {
+                        crossFade: true
+                    },
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false
+                    },
+                    navigation: {
+                        nextEl: classroomSlider.querySelector('.swiper-button-next'),
+                        prevEl: classroomSlider.querySelector('.swiper-button-prev')
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
